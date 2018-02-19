@@ -1,0 +1,689 @@
+{\rtf1\ansi\deff3\adeflang1025
+{\fonttbl{\f0\froman\fprq2\fcharset0 Times New Roman;}{\f1\froman\fprq2\fcharset2 Symbol;}{\f2\fswiss\fprq2\fcharset0 Arial;}{\f3\froman\fprq2\fcharset0 Liberation Serif{\*\falt Times New Roman};}{\f4\froman\fprq2\fcharset0 Liberation Sans{\*\falt Arial};}{\f5\froman\fprq2\fcharset0 Consolas;}{\f6\fnil\fprq2\fcharset0 Consolas;}{\f7\fnil\fprq2\fcharset0 Liberation Serif{\*\falt Times New Roman};}}
+{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}
+{\stylesheet{\s0\snext0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055 Normal;}
+{\s15\sbasedon0\snext16\ql\nowidctlpar\hyphpar0\sb240\sa120\keepn\ltrpar\cf1\kerning1\dbch\af7\langfe2055\dbch\af7\afs24\loch\f4\fs28\lang2055 \u220\'dcberschrift;}
+{\s16\sbasedon0\snext16\sl288\slmult1\ql\nowidctlpar\hyphpar0\sb0\sa140\ltrpar\cf1\kerning1\dbch\af7\langfe2055\dbch\af7\afs24\loch\f3\fs24\lang2055 Textk\u246\'f6rper;}
+{\s17\sbasedon16\snext17\sl288\slmult1\ql\nowidctlpar\hyphpar0\sb0\sa140\ltrpar\cf1\kerning1\dbch\af7\langfe2055\dbch\af7\afs24\loch\f3\fs24\lang2055 Liste;}
+{\s18\sbasedon0\snext18\ql\nowidctlpar\hyphpar0\sb120\sa120\ltrpar\cf1\i\kerning1\dbch\af7\langfe2055\dbch\af7\afs24\loch\f3\fs24\lang2055 Beschriftung;}
+{\s19\sbasedon0\snext19\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe2055\dbch\af7\afs24\loch\f3\fs24\lang2055 Verzeichnis;}
+}{\*\generator LibreOffice/5.4.2.2$Linux_X86_64 LibreOffice_project/40m0$Build-2}{\info{\creatim\yr0\mo0\dy0\hr0\min0}{\revtim\yr2018\mo2\dy19\hr17\min40}{\printim\yr0\mo0\dy0\hr0\min0}}{\*\userprops}\deftab720
+\hyphauto0\viewscale100
+{\*\pgdsctbl
+{\pgdsc0\pgdscuse451\pgwsxn12240\pghsxn15840\marglsxn1800\margrsxn1800\margtsxn1440\margbsxn1440\pgdscnxt0 Standard;}}
+\formshade{\*\pgdscno0}\paperh15840\paperw12240\margl1800\margr1800\margt1440\margb1440\sectd\sbknone\sectunlocked1\pgndec\pgwsxn12240\pghsxn15840\marglsxn1800\margrsxn1800\margtsxn1440\margbsxn1440\ftnbj\ftnstart1\ftnrstcont\ftnnar\aenddoc\aftnrstcont\aftnstart1\aftnnrlc
+{\*\ftnsep\chftnsep}\pgndec\pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+use contract;}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+drop table deckung;}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+drop table contract;}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+CREATE TABLE contract (}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab id bigint NOT NULL AUTO_INCREMENT,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                 }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab PRIMARY KEY (id),}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab contractid decimal ( 12 ) NOT NULL, }
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+     }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab contracttype decimal (2) not null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab contractdescription varchar (50) not null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab datecreated TIMESTAMP}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                               }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab );}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ALTER}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+TABLE}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+  contract}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ADD}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+CONSTRAINT}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ c_contract_01 }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+UNIQUE}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+contractid}{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+);}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+CREATE TABLE deckung (}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                         }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab id bigint NOT NULL AUTO_INCREMENT,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab PRIMARY KEY (id),  }
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab \tab coverageid decimal ( 12 ) NOT NULL,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab \tab contractid decimal ( 12 ) NOT NULL,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab \tab coveragetype decimal (2) not null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab \tab coveragedescription varchar (50) not null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab \tab datecreated TIMESTAMP,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                               }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab );}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ALTER}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+TABLE}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+  deckung}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab \tab }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ADD}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+CONSTRAINT}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ c_deckung_01 }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+UNIQUE}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab \tab }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+coverageid}{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+);}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ALTER TABLE  deckung }
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab \tab ADD CONSTRAINT c_deckung_04 FOREIGN KEY}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab \tab (contractid)}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab \tab REFERENCES  contract (contractid);}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+use}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+claim}{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+;}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+drop table claimtrigger;}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+drop table claim;}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+drop table claimincident;}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+drop table claimoccasion;}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+drop table claimtype;}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+drop table claimnumber;}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+CREATE TABLE claimnumber (}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                     }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab id bigint NOT NULL AUTO_INCREMENT,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab PRIMARY KEY (id),   }
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab claimnumber decimal ( 12 ) NOT NULL,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab datecreated TIMESTAMP,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                    }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab type varchar(32) not null}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                               }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab );}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ALTER TABLE  claimnumber}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab ADD CONSTRAINT c_fachnummer_012 UNIQUE}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab (claimnumber);}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+CREATE}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+TABLE}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ claimoccasion}{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+    \tab \tab }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab id bigint NOT NULL AUTO_INCREMENT,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf15\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                  }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab PRIMARY KEY (id),}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab claimoccasionID }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+DECIMAL }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ 12 }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+)}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+NOT}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+NULL,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab datecreated }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+TIMESTAMP}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                                }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+);}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ALTER}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+TABLE}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+  claimoccasion}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ADD}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+CONSTRAINT}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ c_claimoccasion_01 }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+UNIQUE}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+claimoccasionID}{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+);}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+CREATE}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+TABLE}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ claimincident}{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+    \tab \tab }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                  }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab id bigint NOT NULL AUTO_INCREMENT,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf15\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab PRIMARY KEY (id),}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab claimincidentID }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+DECIMAL }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ 12 }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+)}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+NOT}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+NULL,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+incidentsite }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+varchar }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+32}{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+)}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+not}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab incidentdate }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+date}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+not}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab incidenttime }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+time}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+not}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab reconstruction }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+varchar }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+255}{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+)}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+not}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab claimcause }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+decimal }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+8}{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+)}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+not}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab datecreated }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+TIMESTAMP}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                                }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+);}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ALTER}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+TABLE}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+  claimincident}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ADD}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+CONSTRAINT}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ c_claimincident_01 }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+UNIQUE}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+claimincidentID}{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+);}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+CREATE}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+TABLE}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ claim}{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+    \tab \tab }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab id bigint NOT NULL AUTO_INCREMENT,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf15\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                  }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab PRIMARY KEY (id),}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                  }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab claimID }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+DECIMAL }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ 12 }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+)}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+NOT}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+NULL,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                  }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab claimincidentID }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+DECIMAL }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ 12 }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+)}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+NOT}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+NULL,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab claimoccasionID }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+DECIMAL }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ 12 }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+)}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+NOT}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+NULL,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+contractid }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+DECIMAL }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ 12 }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+)}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+NOT}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+NULL,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab claimoccasionart }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+decimal }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+8}{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+)}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+not}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+status}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+varchar }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+15}{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+)}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+not}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab attmitancedate }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+date}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+not}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab claimmeldungdurch }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+varchar }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+64}{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+)}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+not}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab jurrepresentationnr }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+decimal }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+12}{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+)}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+default}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+-}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+1}{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab publicationclaim }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+decimal }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+4}{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+)}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+not}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+null}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+default}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ 0}{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab fraudprevention }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+decimal }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+4}{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+)}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+not}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+null}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+default}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ 0}{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab claimdate }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+date}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+not}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab contractsreference }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+decimal }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+12}{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+)}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+not}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+null}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+default}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+-}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+1}{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab datecreated }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+TIMESTAMP}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                                }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+);}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ALTER}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+TABLE}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+  claim}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ADD}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+CONSTRAINT}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ c_claim_01 }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+UNIQUE}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+claimID}{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+);}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ALTER}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+TABLE}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+  claim}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ADD}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+CONSTRAINT}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ c_claim_02 }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+FOREIGN}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+KEY}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+claimincidentID}{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+)}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+REFERENCES}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+  claimincident}{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+claimincidentID}{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+);}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ALTER}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+TABLE}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+  claim}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ADD}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+CONSTRAINT}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ c_claim_03 }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+FOREIGN}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+KEY}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+claimoccasionID }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+)}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+REFERENCES}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+  claimoccasion}{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+claimoccasionID }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+);}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+CREATE TABLE claimtype (}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                             }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab id bigint NOT NULL AUTO_INCREMENT,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab PRIMARY KEY (id),  }
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab \tab claimtypeID decimal ( 12 ) NOT NULL,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab \tab coverageid decimal ( 12 ) NOT NULL,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab \tab claimtype varchar (50) not null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab \tab datecreated TIMESTAMP}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                               }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab );}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ALTER}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+TABLE}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+  claimtype }
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab \tab }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ADD}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+CONSTRAINT}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ c_claimtype_01 }{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+UNIQUE}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\cf2\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab \tab }{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+(}{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+claimtypeID}{\cf15\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+);}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ALTER TABLE  claimtype }
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab \tab ADD CONSTRAINT c_claimtype_04 FOREIGN KEY}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab \tab (claimtypeID)}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab \tab REFERENCES  claimnumber (claimnumber); }
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                          }
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+create table claimtrigger (}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                             }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab id bigint NOT NULL AUTO_INCREMENT,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab PRIMARY KEY (id),}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab claimtriggernr decimal (12) not null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab claimID decimal (12) not null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab triggertype decimal (1) not null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab dateofentry date not null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab legalattorney decimal (1) default 0 not null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab claimforattorney decimal (1) default 0 not null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab publicationclaim decimal (1) default 0 not null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab lowcostclaimstatus decimal (1) default 0 not null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab personclaim decimal (1) default 0 not null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab fraudsuspicion decimal (10) default 0 not null, }
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab dateofoccurence date not null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab }{{\*\bkmkstart __DdeLink__5374_1127658911}\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+w}{{\*\bkmkend __DdeLink__5374_1127658911}\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+orkingstate decimal (4) default 0 not null,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                   }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab datecreated timestamp}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+                             }{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+);}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+ }
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ALTER TABLE  claimtrigger }
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab ADD CONSTRAINT c_claimtrigger_01 FOREIGN KEY}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab (claimtriggernr )}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab REFERENCES  claimnumber (claimnumber);}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ALTER TABLE  claimtrigger}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab ADD CONSTRAINT c_claimtrigger_02 UNIQUE}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab (claimtriggernr);   }
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\langfe7\dbch\af6\rtlch \ltrch\fs21\loch\f5\hich\af5
+  }
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+ALTER TABLE  claimtrigger }
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab ADD CONSTRAINT c_claimtrigger_04 FOREIGN KEY}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab (claimID)}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803{\dbch\af6\dbch\af6\rtlch \ltrch\loch\fs21\lang7\loch\f5\hich\af5
+\tab \tab \tab REFERENCES  claim (claimID);}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af7\langfe1081\dbch\af7\afs24\alang1081\loch\f3\fs24\lang2055\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\rtlch \ltrch\loch
+
+\par }
