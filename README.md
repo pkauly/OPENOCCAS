@@ -3,7 +3,7 @@ Open Platform for Business occasion execution
 
 Getting Started
 
-A concept document is currently under construction. The progress can be viewed at [Link to Document](documents/OPENOCCAS_Consept.odt). Further explanations will follow as soon as possible.
+A concept document is currently under construction. The progress can be viewed at [Link to Document](documents/OPENOCCAS_Concept.odt). Further explanations will follow as soon as possible.
 
 Installations instructions will be provided when executable code is available. Next step of the project is do describe the concept behind the planned platform.
 
