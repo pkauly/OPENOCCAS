@@ -1,7 +1,7 @@
-//loadWorkItem
+//manageWorkitem
 // 
 
-public class loadWorkItem
+public class manageWorkitem
 {
 
 private String workitemnumber = "098765432178";
@@ -23,7 +23,12 @@ private String businessprocedurenr = "5";
 private String occasioninstance = "-1";
 private String workitemprocessingtime = "01.03.2018 15:43";
 
-public workitem loadWorkItem () 
+public manageWorkitem () 
+{
+
+}
+
+public workitem getWorkitemByNR(String witnr)
 {
 	return new workitem(workitemnumber, 
 			occasionnr,

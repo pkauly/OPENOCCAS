@@ -20,7 +20,7 @@ private String businessprocedurenr;
 private String processid;
 private String workeventname;
 private String eventtype;
-private String nextworkeventmamenr;
+private String nextworkeventnamenr;
 private String occasionnr;
 
 public workeventname() 
@@ -30,7 +30,7 @@ public workeventname()
 	setprocessid("-1");
 	setworkeventname("-1");
 	seteventtype("-1");
-	setnextworkeventmamenr("-1");
+	setnextworkeventnamenr("-1");
 	setoccasionnr("-1"); 
 }
 
@@ -40,7 +40,7 @@ public workeventname (String workeventnamenr,
 		String processid, 
 		String workeventname, 
 		String eventtype, 
-		String nextworkeventmamenr, 
+		String nextworkeventnamenr, 
 		String occasionnr)
 {
 	setworkeventnamenr(workeventnamenr);
@@ -48,7 +48,7 @@ public workeventname (String workeventnamenr,
 	setprocessid(processid);
 	setworkeventname(workeventname);
 	seteventtype(eventtype);
-	setnextworkeventmamenr(nextworkeventmamenr);
+	setnextworkeventnamenr(nextworkeventnamenr);
 	setoccasionnr(occasionnr); 
 }
 
@@ -96,13 +96,13 @@ public String geteventtype()
 {
 	return eventtype;
 }
-public void setnextworkeventmamenr(String input)
+public void setnextworkeventnamenr(String input)
 {
-	nextworkeventmamenr = input;
+	nextworkeventnamenr = input;
 }
-public String getnextworkeventmamenr()
+public String getnextworkeventnamenr()
 {
-	return nextworkeventmamenr;
+	return nextworkeventnamenr;
 }
 public void setoccasionnr(String input)
 {

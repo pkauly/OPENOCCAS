@@ -23,7 +23,7 @@
 public class openoccasion
 {
 
-private static String id = "-1";
+private String id = "-1";
 private String businessoccasionnr;
 private String technicaloccasionnr;
 private String businesstatus;
@@ -44,6 +44,7 @@ private String objectreference;
 
 public openoccasion () 
 {
+	setid("-1");
 	setbusinessoccasionnr("-1");
 	settechnicaloccasionnr("-1");
 	setbusinesstatus("-1");
@@ -82,6 +83,7 @@ public openoccasion (String businessoccasionnr,
 			String lastprocessingdate, 	
 			String objectreference)
 {
+	setid("1");	
 	setbusinessoccasionnr(businessoccasionnr);
 	settechnicaloccasionnr(technicaloccasionnr);
 	setbusinesstatus(businesstatus);
@@ -101,6 +103,10 @@ public openoccasion (String businessoccasionnr,
 	setobjectreference(objectreference);
 }
 
+private void setid(String input)
+{
+	id = input;
+}
 public String getid()
 {
 	return id;
@@ -241,4 +247,5 @@ public String getobjectreference()
 {
 	return objectreference;					
 }
+
 }
