@@ -12,14 +12,15 @@ public class occasiontype
 private String id = "-1";
 private String occasionnr;
 private String occasiondescription;
-private String occastiontype;
+private String occasiontype;
 
-public occasiontype (String id, String occasionnr, String desc, String type) 
+public occasiontype (String id, String occnr, String desc, String type) 
 {
 	
 	setid(id);
+	setoccasionnr(occnr);
 	setoccasiondescription(desc);
-	setoccastiontype(type);
+	setoccasiontype(type);
 }
 
 public void setid(String input)
@@ -46,13 +47,13 @@ public String getoccasiondescription()
 {
 	return occasiondescription;
 }
-public void setoccastiontype(String input)
+public void setoccasiontype(String input)
 {
-	occastiontype = input;
+	occasiontype = input;
 }
-public String getoccastiontype()
+public String getoccasiontype()
 {
-	return occastiontype;
+	return occasiontype;
 }
 
 }
