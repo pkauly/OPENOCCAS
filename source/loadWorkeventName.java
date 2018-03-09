@@ -41,13 +41,13 @@ private workeventname runsql(String sql)
 {
 	Statement stmt = null;
 
-	workeventname wen = new workeventname();
-	   try{
+	workeventname wen = new workeventname();	
+	try {
 		stmt = conn.createStatement();
       		ResultSet rs = stmt.executeQuery(sql);
 
       //STEP 5: Extract data from result set
-      		while(rs.next()){
+      		while(rs.next()) {
          //Retrieve by column name
          		String id  = rs.getString("id");
          		wen.setworkeventnamenr(rs.getString("workeventnamenr"));
@@ -67,23 +67,27 @@ private workeventname runsql(String sql)
          		System.out.print(", nextworkeventmamenr: " + wen.getnextworkeventnamenr());
          		System.out.println(", occasionnr: " + wen.getoccasionnr());
 			break;
-      	}
+      		}
       //STEP 6: Clean-up environment
       	rs.close();
       	stmt.close();
-   	}	catch(SQLException se){
+   	}	
+	catch(SQLException se) {
       //Handle errors for JDBC
       		se.printStackTrace();
-   	}	catch(Exception e){
+   	}	
+	catch(Exception e){
       //Handle errors for Class.forName
       		e.printStackTrace();
-   	}	finally{
+   	}	
+	finally{
       //finally block used to close resources
-      try{
+      	try{
          if(stmt!=null)
             stmt.close();
-      }catch(SQLException se2){
-      }// nothing we can do
+      	}
+	catch(SQLException se2){
+      	}// nothing we can do
 
    }//end try
 

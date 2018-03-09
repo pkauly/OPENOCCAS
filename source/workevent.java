@@ -40,7 +40,7 @@ public workevent()
 	settechnicaloccasionnr("-1");
 	settechnicalsourceoccasionnr("-1"); 
 	setworkitemnumber("-1");
-	setprocessingstate("-1");
+	setprocessingstate("0");
 	setcorelworkevent("-1");
 	setoccasioninstance("-1");
 	id = "15";
