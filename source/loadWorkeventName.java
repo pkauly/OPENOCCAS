@@ -15,39 +15,62 @@ public loadWorkeventName()
 
 public workeventname loadWorkeventNameByNr(String wenr,String busnr)
 {
-	int i = Integer.parseInt(wenr) - 1;
+     	String sql;
+     	sql = "SELECT * from workeventname where workeventnamenr = " + wenr + " and businessprocedurenr = " + busnr + ";";
+ 	wen = runsql(sql);
+	return wen;
+
+}
+
+public workeventname loadWorkeventNameByBNr(String busnr)
+{
+
+	System.out.println("loadWorkeventNAme Creating statement...");
+      	String sql;
+     	sql = "SELECT * from workeventname where businessprocedurenr = " + busnr + ";";
+ 	wen = runsql(sql);	
+	return wen;
+}
+
+public String getnextWorkeventNameNR()
+{
+	return wen.getnextworkeventnamenr();	
+}
+
+private workeventname runsql(String sql)
+{
 	Statement stmt = null;
+
+	workeventname wen = new workeventname();
 	   try{
-       //STEP 4: Execute a query
-     		System.out.println("Creating statement...");
-     		stmt = conn.createStatement();
-     		String sql;
-     		sql = "SELECT * from workeventname;";
+		stmt = conn.createStatement();
       		ResultSet rs = stmt.executeQuery(sql);
 
       //STEP 5: Extract data from result set
       		while(rs.next()){
          //Retrieve by column name
          		String id  = rs.getString("id");
-         		String workeventnamenr = rs.getString("workeventnamenr");
-        		String businessprocedurenr = rs.getString("businessprocedurenr");
-        		String processid = rs.getString("processid");
-        		String workeventname = rs.getString("workeventname");
-        		String occasionnr = rs.getString("occasionnr");
-
-
+         		wen.setworkeventnamenr(rs.getString("workeventnamenr"));
+        		wen.setbusinessprocedurenr(rs.getString("businessprocedurenr"));
+        		wen.setprocessid(rs.getString("processid"));
+        		wen.setworkeventname(rs.getString("workeventname"));
+        		wen.seteventtype(rs.getString("eventtype"));
+        		wen.setnextworkeventnamenr(rs.getString("nextworkeventmamenr"));
+ 
          //Display values
          		System.out.print("ID: " + id);
-         		System.out.print(", workeventnamenr " + workeventnamenr);
-         		System.out.print(", businessprocedurenr: " + businessprocedurenr);
-         		System.out.print(", processid: " + processid);
-         		System.out.print(", workeventname: " + workeventname);
-         		System.out.println(", occasionnr: " + occasionnr);
+         		System.out.print(", workeventnamenr " + wen.getworkeventnamenr());
+         		System.out.print(", businessprocedurenr: " + wen.getbusinessprocedurenr());
+         		System.out.print(", processid: " + wen.getprocessid());
+         		System.out.print(", workeventname: " + wen.getworkeventname());
+         		System.out.print(", eventtype: " + wen.geteventtype());
+         		System.out.print(", nextworkeventmamenr: " + wen.getnextworkeventnamenr());
+         		System.out.println(", occasionnr: " + wen.getoccasionnr());
+			break;
       	}
       //STEP 6: Clean-up environment
       	rs.close();
       	stmt.close();
-      	conn.close();
    	}	catch(SQLException se){
       //Handle errors for JDBC
       		se.printStackTrace();
@@ -61,28 +84,10 @@ public workeventname loadWorkeventNameByNr(String wenr,String busnr)
             stmt.close();
       }catch(SQLException se2){
       }// nothing we can do
-      try{
-         if(conn!=null)
-            conn.close();
-      }catch(SQLException se){
-         se.printStackTrace();
-      }//end finally try
+
    }//end try
+
 	return wen;
-
 }
-
-public workeventname loadWorkeventNameByBNr(String busnr)
-{
-		return new workeventname("1","1","1","Schadeneriengis aufnehmen","S","2","5");
-}
-
-public String getnextWorkeventNameNR(String wenr)
-{
-	int i = Integer.parseInt(wenr) - 1;
-
-	return wenr;	
-}
-
 
 }

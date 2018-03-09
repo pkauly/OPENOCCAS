@@ -66,7 +66,7 @@ public String getworkeventnamenr()
 }
 public void setbusinessprocedurenr(String input)
 {
-	occasionnr = businessprocedurenr;
+	businessprocedurenr = input;
 }
 public String getbusinessprocedurenr()
 {

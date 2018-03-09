@@ -5,26 +5,58 @@ public class MainloadWorkeventNameTest
 {
 public static void main(String[] args)
 	{
-
+	String newrken = null;
+	workeventname wen = null;
 	loadWorkeventName mwe = new loadWorkeventName();
-	System.out.println(mwe.loadWorkeventNameByNr("1","5").getworkeventname() + " " + mwe.loadWorkeventNameByNr("1","5").geteventtype());
-	System.out.println(mwe.loadWorkeventNameByNr("2","5").getworkeventname() + " " + mwe.loadWorkeventNameByNr("2","5").geteventtype());
-	System.out.println(mwe.loadWorkeventNameByNr("3","5").getworkeventname() + " " + mwe.loadWorkeventNameByNr("3","5").geteventtype());
-	System.out.println(mwe.loadWorkeventNameByNr("4","5").getworkeventname() + " " + mwe.loadWorkeventNameByNr("4","5").geteventtype());
-	System.out.println(mwe.loadWorkeventNameByNr("5","5").getworkeventname() + " " + mwe.loadWorkeventNameByNr("5","5").geteventtype());
-	System.out.println(mwe.loadWorkeventNameByNr("6","5").getworkeventname() + " " + mwe.loadWorkeventNameByNr("6","5").geteventtype());
-	System.out.println(mwe.loadWorkeventNameByNr("7","5").getworkeventname() + " " + mwe.loadWorkeventNameByNr("7","5").geteventtype());
-	System.out.println(mwe.loadWorkeventNameByNr("8","5").getworkeventname() + " " + mwe.loadWorkeventNameByNr("8","5").geteventtype());
-	
-	String newrken = mwe.getnextWorkeventNameNR("4");
+
+	wen = mwe.loadWorkeventNameByNr("1","1");
+	System.out.println("getworkeventname " + wen.getworkeventname() + " geteventtype " + wen.geteventtype());
+	newrken = mwe.getnextWorkeventNameNR();
 	if (newrken == "0") System.out.println(newrken + "no more events " );
 	else System.out.println(newrken + " " + mwe.loadWorkeventNameByNr(newrken,"5").getworkeventnamenr());
 
-	newrken = mwe.getnextWorkeventNameNR("5");
-	if (newrken == "0") System.out.println(newrken + " no more events " );
+	wen = mwe.loadWorkeventNameByNr("2","1");
+	System.out.println("getworkeventname " + wen.getworkeventname() + " geteventtype " + wen.geteventtype());
+	newrken = mwe.getnextWorkeventNameNR();
+	if (newrken == "0") System.out.println(newrken + "no more events " );
 	else System.out.println(newrken + " " + mwe.loadWorkeventNameByNr(newrken,"5").getworkeventnamenr());
-	return;
-	}
+
+	wen = mwe.loadWorkeventNameByNr("3","1");
+	System.out.println("getworkeventname " + wen.getworkeventname() + " geteventtype " + wen.geteventtype());
+	newrken = mwe.getnextWorkeventNameNR();
+	if (newrken == "0") System.out.println(newrken + "no more events " );
+	else System.out.println(newrken + " " + mwe.loadWorkeventNameByNr(newrken,"5").getworkeventnamenr());
+
+	wen = mwe.loadWorkeventNameByNr("4","1");
+	System.out.println("getworkeventname " + wen.getworkeventname() + " geteventtype " + wen.geteventtype());
+	newrken = mwe.getnextWorkeventNameNR();
+	if (newrken == "0") System.out.println(newrken + "no more events " );
+	else System.out.println(newrken + " " + mwe.loadWorkeventNameByNr(newrken,"5").getworkeventnamenr());
+
+	wen = mwe.loadWorkeventNameByNr("5","2");
+	System.out.println("getworkeventname " + wen.getworkeventname() + " geteventtype " + wen.geteventtype());
+	newrken = mwe.getnextWorkeventNameNR();
+	if (newrken == "0") System.out.println(newrken + "no more events " );
+	else System.out.println(newrken + " " + mwe.loadWorkeventNameByNr(newrken,"5").getworkeventnamenr());
+
+	wen = mwe.loadWorkeventNameByNr("6","2");
+	System.out.println("getworkeventname " + wen.getworkeventname() + " geteventtype " + wen.geteventtype());
+	newrken = mwe.getnextWorkeventNameNR();
+	if (newrken == "0") System.out.println(newrken + "no more events " );
+	else System.out.println(newrken + " " + mwe.loadWorkeventNameByNr(newrken,"5").getworkeventnamenr());
+
+	wen = mwe.loadWorkeventNameByNr("7","2");
+	System.out.println("getworkeventname " + wen.getworkeventname() + " geteventtype " + wen.geteventtype());
+	newrken = mwe.getnextWorkeventNameNR();
+	if (newrken == "0") System.out.println(newrken + "no more events " );
+	else System.out.println(newrken + " " + mwe.loadWorkeventNameByNr(newrken,"5").getworkeventnamenr());
+
+	wen = mwe.loadWorkeventNameByNr("8","2");
+	System.out.println("getworkeventname " + wen.getworkeventname() + " geteventtype " + wen.geteventtype());
+	newrken = mwe.getnextWorkeventNameNR();
+	if (newrken == "0") System.out.println(newrken + "no more events " );
+	else System.out.println(newrken + " " + mwe.loadWorkeventNameByNr(newrken,"5").getworkeventnamenr());
+   }
 
 }
 
