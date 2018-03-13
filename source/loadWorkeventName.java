@@ -40,6 +40,7 @@ public String getnextWorkeventNameNR()
 private workeventname runsql(String sql)
 {
 	Statement stmt = null;
+	System.out.println("loadWorkeventName runsql " + sql);
 
 	workeventname wen = new workeventname();	
 	try {
@@ -56,6 +57,7 @@ private workeventname runsql(String sql)
         		wen.setworkeventname(rs.getString("workeventname"));
         		wen.seteventtype(rs.getString("eventtype"));
         		wen.setnextworkeventnamenr(rs.getString("nextworkeventmamenr"));
+       			wen.setoccasionnr(rs.getString("occasionnr"));
  
          //Display values
          		System.out.print("ID: " + id);

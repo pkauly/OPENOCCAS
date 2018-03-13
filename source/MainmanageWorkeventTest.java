@@ -8,18 +8,7 @@ public static void main(String[] args)
 
 	manageWorkevent mwe = new manageWorkevent();
 	workevent we = mwe.getWorkeventByID("2");
-	        	System.out.print(" main ID: " + we.getid());
-         		System.out.print(", workeventnamenr " + we.getworkeventnamenr());
-         		System.out.print(", startworkeventnr: " + we.getstartworkeventnr());
-         		System.out.print(", objectreference: " + we.getobjectreference());
-         		System.out.print(", occasiontype: " + we.getoccasiontype());
-         		System.out.print(", businessprocedurenr: " + we.getbusinessprocedurenr());
-         		System.out.print(", technicaloccasionnr: " + we.gettechnicaloccasionnr());
-         		System.out.print(", technicalsourceoccasionnr: " + we.gettechnicalsourceoccasionnr());
-         		System.out.print(", workitemnumber: " + we.getworkitemnumber());
-         		System.out.print(", processingstate: " + we.getprocessingstate());
-         		System.out.print(", corelworkevent: " + we.getcorelworkevent());
-         		System.out.println(", occasioninstance: " + we.getoccasioninstance());
+	outworkevent(we,"getWorkeventByID");
 	
 	mwe = new manageWorkevent();
 	workevent nwe = mwe.createWorkevent(we.getworkeventnamenr(),
@@ -32,20 +21,53 @@ public static void main(String[] args)
 				we.getworkitemnumber(),
 				we.getid(),
 				"myInstance");	
-	        	System.out.print(" main ID: " + nwe.getid());
-         		System.out.print(", workeventnamenr " + nwe.getworkeventnamenr());
-         		System.out.print(", startworkeventnr: " + nwe.getstartworkeventnr());
-         		System.out.print(", objectreference: " + nwe.getobjectreference());
-         		System.out.print(", occasiontype: " + nwe.getoccasiontype());
-         		System.out.print(", businessprocedurenr: " + nwe.getbusinessprocedurenr());
-         		System.out.print(", technicaloccasionnr: " + nwe.gettechnicaloccasionnr());
-         		System.out.print(", technicalsourceoccasionnr: " + nwe.gettechnicalsourceoccasionnr());
-         		System.out.print(", workitemnumber: " + nwe.getworkitemnumber());
-         		System.out.print(", processingstate: " + nwe.getprocessingstate());
-         		System.out.print(", corelworkevent: " + nwe.getcorelworkevent());
-         		System.out.println(", occasioninstance: " + nwe.getoccasioninstance());
+	outworkevent(nwe,"createWorkevent 1");
+
+	mwe.updateWorkeventRouted(nwe.getid());
+	outworkevent(nwe,"updateWorkeventRouted");
+	we = new workevent();
+	nwe = mwe.createWorkevent("5",
+				null,
+				null,
+				"5",
+				"3",
+				null,
+				null,
+				null,
+				null,
+				"newInstance");	
+	outworkevent(nwe,"createWorkevent 2");
+	we = mwe.updateWorkeventByID(nwe.getid(),
+				null,
+				null,
+				null,
+				null,
+				null,
+				"123456800116",
+				null,
+				null,
+				null,
+				null);
+	outworkevent(we,"updateWorkeventByID");
 	return;
 	}
+
+public static void outworkevent(workevent nwe, String text)
+{
+     	System.out.println(text );     	
+	System.out.print(" main ID: " + nwe.getid());
+	System.out.print(", workeventnamenr " + nwe.getworkeventnamenr());
+	System.out.print(", startworkeventnr: " + nwe.getstartworkeventnr());
+  	System.out.print(", objectreference: " + nwe.getobjectreference());
+        System.out.print(", occasiontype: " + nwe.getoccasiontype());
+        System.out.print(", businessprocedurenr: " + nwe.getbusinessprocedurenr());
+        System.out.println(", technicaloccasionnr: " + nwe.gettechnicaloccasionnr());
+        System.out.print(", technicalsourceoccasionnr: " + nwe.gettechnicalsourceoccasionnr());
+        System.out.print(", workitemnumber: " + nwe.getworkitemnumber());
+        System.out.print(", processingstate: " + nwe.getprocessingstate());
+        System.out.print(", corelworkevent: " + nwe.getcorelworkevent());
+        System.out.println(", occasioninstance: " + nwe.getoccasioninstance());
+}
 
 }
 

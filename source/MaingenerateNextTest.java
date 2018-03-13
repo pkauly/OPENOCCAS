@@ -13,7 +13,8 @@ public static void main(String[] args)
 		iccstart.setworkeventnamenr("1");
 		iccstart.setstate("START");
 		iccstart.setreferencetouse("-1");
-		iccstart.setbusinessprocedurenr("5");
+		iccstart.setbusinessprocedurenr("1");
+		outopenoccasstart(iccstart,"First generation of occassstart");
 
 		openoccasstart occstart = gnes.generateNextSequencedo(iccstart);
 		openoccasstart oc1 = occstart;
@@ -28,6 +29,16 @@ public static void main(String[] args)
 	return;
 	}
 
+public static void outopenoccasstart(openoccasstart is, String text)
+{
+     	System.out.println(text );     	
+	System.out.print(" workeventnr: " + is.getworkeventnr());
+	System.out.print(", workeventnamenr " + is.getworkeventnamenr());
+	System.out.print(", state: " + is.getstate());
+  	System.out.print(", referencetouse: " + is.getreferencetouse());
+        System.out.println(", businessprocedurenr: " + is.getbusinessprocedurenr());
+ 
+}
 }
 
 

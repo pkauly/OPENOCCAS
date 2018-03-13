@@ -14,13 +14,13 @@ private String occasionnr;
 private String occasiondescription;
 private String occasiontype;
 
-public occasiontype (String id, String occnr, String desc, String type) 
+public occasiontype () 
 {
 	
-	setid(id);
-	setoccasionnr(occnr);
-	setoccasiondescription(desc);
-	setoccasiontype(type);
+	setid("-1");
+	setoccasionnr("-1");
+	setoccasiondescription("-1");
+	setoccasiontype("-1");
 }
 
 public void setid(String input)

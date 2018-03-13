@@ -6,10 +6,9 @@ import java.sql.*;
 
 public class dbConnection {
 
-private static final String URL = "jdbc:mysql://localhost/";
+private static final String URL = "jdbc:mysql://localhost/openoccasion?autoReconnect=true&useSSL=false";
 private static final String LOGIN = "openoccas";
 private static final String PASSWORD = "openoccas";
-private static final String DBNAME = "openoccasion";
 private static dbConnection connector;
 private static Connection connection;
 
@@ -33,7 +32,7 @@ public static Connection getConnection() {
             e.printStackTrace();
         }
         try {
-            c = DriverManager.getConnection(URL + DBNAME, LOGIN, PASSWORD);
+            c = DriverManager.getConnection(URL, LOGIN, PASSWORD);
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

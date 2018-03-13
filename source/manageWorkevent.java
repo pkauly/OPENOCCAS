@@ -12,6 +12,7 @@ public Connection conn = null;
 public manageWorkevent() 
 {
  	conn = dbConnection.getInstance().getConnection();
+	we = new workevent();
 }
 
 public workevent getWorkeventByID(String gid)
@@ -40,7 +41,7 @@ public workevent createWorkevent(String workeventnamenr,
 				String corelworkevent,
 				String occasioninstance)
 {
-	workevent we = new workevent();
+	we = new workevent();
 
 	if (workeventnamenr != null) { we.setworkeventnamenr(workeventnamenr); }
 	if (startworkeventnr != null) { we.setstartworkeventnr(startworkeventnr); }
@@ -68,7 +69,7 @@ public workevent createWorkevent(String workeventnamenr,
 						'"' + we.getworkitemnumber() + '"' + "," +
 						'"' + we.getcorelworkevent() + '"' + "," +
 						'"' + we.getoccasioninstance() + '"' + ");";
-	System.out.println(sql);
+	System.out.println("insert workevetn " + sql);
 	we = runsqlinsert(sql);
 	return we;
 
@@ -87,7 +88,7 @@ public workevent updateWorkeventByID(String gid,
 				String occasioninstance)
 {
 
-	workevent we = null;
+	we = null;
      	String sql;
      	sql = "SELECT * from workevent where id = " + gid + ";";
  	we = runsqlquery(sql);
@@ -113,16 +114,16 @@ public workevent updateWorkeventByID(String gid,
 		"technicalsourceoccasionnr = " + '"' + we.gettechnicalsourceoccasionnr() + '"' + "," +
 		"workitemnumber = " + '"' + we.getworkitemnumber() + '"' + "," +
 		"corelworkevent = " + '"' + we.getcorelworkevent() + '"' + "," +
-		"occasioninstance = " + '"' + we.getoccasioninstance() + '"' + "," +
+		"occasioninstance = " + '"' + we.getoccasioninstance() + '"' + 
 		 " where id = " + gid + ";";
 	System.out.println(sql);
 	we = runsqlupdate(gid,sql);
 	return we;
 }
 
-public workevent updateWorkeventRouted(String gid, String processingstate)
+public workevent updateWorkeventRouted(String gid)
 {
-	if (processingstate != "0" && processingstate != "1") processingstate = "0";  
+	String processingstate = "1";  
 	Statement stmt = null;
      	String sql;
 	workevent we = new workevent();
@@ -136,7 +137,7 @@ private workevent runsqlquery(String sql)
 {
 	Statement stmt = null;
 	System.out.println("runsqlquery " + sql);
-	workevent we = new workevent();
+	we = new workevent();
 	try{
 		stmt = conn.createStatement();
       		ResultSet rs = stmt.executeQuery(sql);
@@ -201,7 +202,7 @@ private workevent runsqlinsert(String sql)
 {
 	Statement stmt = null;
 	int id = -1;
-	workevent we = new workevent();	
+	we = new workevent();	
 	try{
 		conn.setAutoCommit(false);
 		stmt = conn.createStatement();
@@ -209,6 +210,7 @@ private workevent runsqlinsert(String sql)
 	      	ResultSet rs = stmt.getGeneratedKeys();
 	      	if (rs.next()) id=rs.getInt(1);
  		conn.commit();
+		conn.setAutoCommit(true);
    
          	System.out.println("manageWorkevent insert ID: " + id);
  
@@ -242,7 +244,7 @@ private workevent runsqlinsert(String sql)
 
 private workevent runsqlupdate(String gid,String sql)
 {
-	workevent we = null;
+	we = null;
 	Statement stmt = null;
 	try {
 		stmt = conn.createStatement();
