@@ -28,7 +28,19 @@ public openoccasstart generateNextSequencedo(openoccasstart iopst)
 	{
 		System.out.println("checkpoint 1");
 		iwe = iwemgr.getWorkeventByID(wrkevt);
-		twe = iwe;
+		twe = new workevent(iwe.getid(),
+			iwe.getworkeventnamenr(),
+			iwe.getstartworkeventnr(),
+			iwe.getobjectreference(),
+			iwe.getoccasiontype(),
+			iwe.getbusinessprocedurenr(),
+			iwe.gettechnicaloccasionnr(),
+			iwe.gettechnicalsourceoccasionnr(), 
+			iwe.getworkitemnumber(),
+			iwe.getprocessingstate(),
+			iwe.getcorelworkevent(),
+			iwe.getoccasioninstance());
+
 		if (iopst.getworkeventnamenr().compareTo("0") > 0) 
 		{
 			wen = new loadWorkeventName().loadWorkeventNameByNr(iopst.getworkeventnamenr(),iopst.getbusinessprocedurenr());
@@ -63,9 +75,9 @@ public openoccasstart generateNextSequencedo(openoccasstart iopst)
 			wen = new loadWorkeventName().loadWorkeventNameByBNr(iopst.getbusinessprocedurenr());
 			}
 		System.out.println("checkpoint 8 " );
-		owemgr = generatenewWorkevent(twe,wen,iopst); 
-		twe = owemgr.getcurrentWorkevent();
-		iwe = twe;
+//		owemgr = generatenewWorkevent(twe,wen,iopst); 
+		twe = new workevent();
+		iwe = new workevent();
 	}
 
 	openoccasstart oopst = new openoccasstart();
@@ -73,7 +85,15 @@ public openoccasstart generateNextSequencedo(openoccasstart iopst)
 	if (iopst.getbusinessprocedurenr() == null || iopst.getbusinessprocedurenr().compareTo(iwe.getbusinessprocedurenr()) == 0)
 	{
 		System.out.println("checkpoint 9");
-		if (new loadWorkeventName().loadWorkeventNameByBNr(wen.getworkeventnamenr()).getnextworkeventnamenr().compareTo("0") < 1 && iwe.getcorelworkevent().compareTo("000000000000") > 0) 
+		if (wen.getnextworkeventnamenr().compareTo("0") > 0) 
+		{
+			workeventname twen = new loadWorkeventName().loadWorkeventNameByBNr(wen.getnextworkeventnamenr());
+			wen = new loadWorkeventName().loadWorkeventNameByBNr(wen.getnextworkeventnamenr());
+			twe.setworkeventnamenr(wen.getnextworkeventnamenr());
+			System.out.println("checkpoint 41 " + "twe.setworkeventnamenr() " + twe.getworkeventnamenr() + " wen.getnextworkeventnamenr() " + wen.getnextworkeventnamenr());
+		}
+		twe.setstartworkeventnr(iwe.getworkeventnamenr());
+		if (wen.getnextworkeventnamenr().compareTo("0") == 0 && iwe.getcorelworkevent().compareTo("000000000000") > 0) 
 		{
 			System.out.println("checkpoint 10");
 			twe = new manageWorkevent().getWorkeventByID(iwe.getcorelworkevent());
@@ -85,13 +105,23 @@ public openoccasstart generateNextSequencedo(openoccasstart iopst)
 			System.out.println("checkpoint 11 iopst.getbusinessprocedurenr() " + iopst.getbusinessprocedurenr() + " iwe.getbusinessprocedurenr() " + iwe.getbusinessprocedurenr() );
 			wen = new loadWorkeventName().loadWorkeventNameByNr(iopst.getworkeventnamenr(),iopst.getbusinessprocedurenr());
 			loadOccasiontype locct = new loadOccasiontype();
-			occasiontype occt = locct.getOccasiontypeByNR(iwe.getoccasiontype());
+			occasiontype occt = locct.getOccasiontypeByNR(wen.getoccasionnr());
 			String occtype = occt.getoccasiontype();
 			twe.settechnicalsourceoccasionnr(iwe.gettechnicaloccasionnr());
 			twe.setoccasiontype(occtype);
+			twe.setworkeventnamenr(wen.getworkeventnamenr());
 //			owe = generatenewWorkevent(twe,wen,iopst).getcurrentWorkevent();
 		}
-
+	if (twe.getworkeventnamenr().compareTo("1") < 0) 
+	{
+		iopst.setstate("STOP");
+		System.out.println("checkpoint 40");
+	}
+	System.out.print("generatenext workeventnr: " + iopst.getworkeventnr());
+	System.out.print(", workeventnamenr " + iopst.getworkeventnamenr());
+	System.out.print(", state: " + iopst.getstate());
+  	System.out.print(", referencetouse: " + iopst.getreferencetouse());
+        System.out.println(", businessprocedurenr: " + iopst.getbusinessprocedurenr());
 	switch (iopst.getstate())
 	{
 		case "END": 
@@ -115,8 +145,9 @@ public openoccasstart generateNextSequencedo(openoccasstart iopst)
 			oopst = generatenewopenoccasstart(owemgr.getcurrentWorkevent());
 			oopst.setstate("START");
 			break;
-		case "CALLPEOC": 
+		case "CALLPROC": 
 			System.out.println("checkpoint 16");	
+			twe.setcorelworkevent(iwe.getworkeventnamenr());
 			owemgr = generatenewWorkevent(twe,wen,iopst);
 			oopst = generatenewopenoccasstart(owemgr.getcurrentWorkevent());
 			oopst.setstate("START");
@@ -137,7 +168,7 @@ public openoccasstart generateNextSequencedo(openoccasstart iopst)
 private manageWorkevent generatenewWorkevent(workevent iwe, workeventname wen, openoccasstart opstart) {
 	System.out.println("Occasiontype " + wen.getoccasionnr());
 	occasiontype occt = new loadOccasiontype().getOccasiontypeByNR(wen.getoccasionnr());
-	System.out.println("Occasiontype " + occt.getid() + " " + occt.getoccasionnr() + " " + occt.getoccasiondescription() + " " + occt.getoccasiontype());
+	System.out.println("Occasionnr " + occt.getid() + " " + occt.getoccasionnr() + " " + occt.getoccasiondescription() + " " + occt.getoccasiontype());
 	System.out.println("checkpoint 20");
 	manageWorkevent wemgr = new manageWorkevent();
 	workevent twe = wemgr.createWorkevent(wen.getworkeventnamenr(),
