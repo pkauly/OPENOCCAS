@@ -69,7 +69,7 @@ public workevent createWorkevent(String workeventnamenr,
 						'"' + we.getworkitemnumber() + '"' + "," +
 						'"' + we.getcorelworkevent() + '"' + "," +
 						'"' + we.getoccasioninstance() + '"' + ");";
-	System.out.println("insert workevetn " + sql);
+	System.out.println("insert workevent " + sql);
 	we = runsqlinsert(sql);
 	return we;
 

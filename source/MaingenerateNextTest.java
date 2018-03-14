@@ -20,23 +20,42 @@ public static void main(String[] args)
 		iccstart.setreferencetouse("-1");
 		iccstart.setbusinessprocedurenr("1");
 		
-		outopenoccasstart(iccstart,"First generation of occassstart START");
+		outopenoccasstart(iccstart,"### First generation of occassstart START");
 		occstart = gnes.generateNextSequencedo(iccstart);
-		outopenoccasstart(occstart,"First generation of occassstart END");
+		outopenoccasstart(occstart,"### First generation of occassstart END");
 		
 		iccstart = occstart;
-		iccstart.setstate("END");
-		outopenoccasstart(iccstart,"Second generation of occassstart START");
+		occstart = null;
+		iccstart.setstate("CALLPROC");
+		iccstart.setbusinessprocedurenr("2");
+		iccstart.setworkeventnamenr("5");
+		outopenoccasstart(iccstart,"### CALLPROC First generation of occassstart START");
 		occstart = gnes.generateNextSequencedo(iccstart);
-		outopenoccasstart(occstart,"Second generation of occassstart END");
+		outopenoccasstart(occstart,"### CALLPROC First generation of occassstart END");
 
 		iccstart = occstart;
+		occstart = null;
 		iccstart.setstate("END");
-		outopenoccasstart(iccstart,"Third generation of occassstart START");
+		outopenoccasstart(iccstart,"### CALLPROC Second generation of occassstart START");
 		occstart = gnes.generateNextSequencedo(iccstart);
-		outopenoccasstart(occstart,"Third generation of occassstart END");
+		outopenoccasstart(occstart,"### CALLPROC Second generation of occassstart END");
+
+		iccstart = occstart;
+		occstart = null;
+		iccstart.setstate("END");
+		outopenoccasstart(iccstart,"### Second generation of occassstart START");
+		occstart = gnes.generateNextSequencedo(iccstart);
+		outopenoccasstart(occstart,"### Second generation of occassstart END");
+
+		iccstart = occstart;
+		occstart = null;
+		iccstart.setstate("END");
+		outopenoccasstart(iccstart,"### Third generation of occassstart START");
+		occstart = gnes.generateNextSequencedo(iccstart);
+		outopenoccasstart(occstart,"### Third generation of occassstart END");
 		
 		
+			
 
 	return;
 	}

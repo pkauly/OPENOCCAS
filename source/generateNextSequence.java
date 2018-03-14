@@ -90,19 +90,27 @@ public openoccasstart generateNextSequencedo(openoccasstart iopst)
 			if (Long.parseLong(iopst.getbusinessprocedurenr()) == Long.parseLong(iwe.getbusinessprocedurenr()))
 			{
 				System.out.println("checkpoint 12a");
+				wen = new loadWorkeventName().loadWorkeventNameByNr(iwe.getworkeventnamenr(),iwe.getbusinessprocedurenr());
 				workeventname twen = new loadWorkeventName().loadWorkeventNameByNr(wen.getnextworkeventnamenr(),iopst.getbusinessprocedurenr());
 				long newevt = Long.parseLong(twen.getnextworkeventnamenr());
 				if (newevt > 0) 
 				{
 					wen = new loadWorkeventName().loadWorkeventNameByNr(twen.getnextworkeventnamenr(),iopst.getbusinessprocedurenr());
 					twe.setworkeventnamenr(wen.getnextworkeventnamenr());
-					System.out.println("checkpoint 12b " + "twe.getworkeventnamenr() " + twe.getworkeventnamenr() + " twen.getnextworkeventnamenr() " + 						twen.getnextworkeventnamenr() + " wen.getnextworkeventnamenr() " + wen.getnextworkeventnamenr());
+					System.out.println("checkpoint 12b " + "twe.getworkeventnamenr() " + twe.getworkeventnamenr() + " twen.getnextworkeventnamenr() " + twen.getnextworkeventnamenr() + " wen.getnextworkeventnamenr() " + wen.getnextworkeventnamenr());
 				}
 				else 	if (Long.parseLong(iwe.getcorelworkevent()) > 0) 
 					{
 						System.out.println("checkpoint 12c");
-						twe = new manageWorkevent().getWorkeventByID(iwe.getcorelworkevent());
-						wen = new loadWorkeventName().loadWorkeventNameByNr(iopst.getworkeventnamenr(),iopst.getbusinessprocedurenr());
+						iwe = iwemgr.getWorkeventByID(iwe.getcorelworkevent());
+						twen = new loadWorkeventName().loadWorkeventNameByNr(iwe.getworkeventnamenr(), iwe.getbusinessprocedurenr());
+						newevt = Long.parseLong(twen.getnextworkeventnamenr());
+						if (newevt > 0) 
+						{
+							wen = new loadWorkeventName().loadWorkeventNameByNr(twen.getnextworkeventnamenr(),iopst.getbusinessprocedurenr());
+							twe.setworkeventnamenr(wen.getnextworkeventnamenr());
+							System.out.println("checkpoint 12ca " + "twe.getworkeventnamenr() " + twe.getworkeventnamenr() + " twen.getnextworkeventnamenr() " + twen.getnextworkeventnamenr() + " wen.getnextworkeventnamenr() " + wen.getnextworkeventnamenr());
+						}
 					}
 					else 
 					{
@@ -154,7 +162,7 @@ public openoccasstart generateNextSequencedo(openoccasstart iopst)
 				twe.settechnicalsourceoccasionnr(iwe.gettechnicaloccasionnr());
 				twe.setoccasiontype(occtype);
 				twe.setworkeventnamenr(wen.getworkeventnamenr());
-				twe.setcorelworkevent(iwe.getworkeventnamenr());
+				twe.setcorelworkevent(iwe.getid());
 			}
 			else
 			{
@@ -167,6 +175,7 @@ public openoccasstart generateNextSequencedo(openoccasstart iopst)
 			owemgr = generatenewWorkevent(twe,wen,iopst);
 			oopst = generatenewopenoccasstart(owemgr.getcurrentWorkevent());
 			oopst.setstate("START");
+			oopst.setreferencetouse(iwe.getid());
 		    	break;
 		case "OUTPUTWAIT": 
 			System.out.println("checkpoint 17");
@@ -178,7 +187,10 @@ public openoccasstart generateNextSequencedo(openoccasstart iopst)
 			System.out.println("checkpoint 19");
 			oopst.setworkeventnamenr("-1");
 	}
-	owe = owemgr.updateWorkeventRouted(owemgr.getcurrentWorkevent().getid());
+	if (Long.parseLong(oopst.getworkeventnamenr()) > 0)
+	{
+		owe = owemgr.updateWorkeventRouted(owemgr.getcurrentWorkevent().getid());
+	}
 	return oopst;
 }
 	
