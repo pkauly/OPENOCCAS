@@ -19,41 +19,29 @@ public static void main(String[] args)
 		iccstart.setstate("START");
 		iccstart.setreferencetouse("-1");
 		iccstart.setbusinessprocedurenr("1");
-		
-		outopenoccasstart(iccstart,"### First generation of occassstart START");
-		occstart = gnes.generateNextSequencedo(iccstart);
-		outopenoccasstart(occstart,"### First generation of occassstart END");
-		
-		iccstart = occstart;
-		occstart = null;
-		iccstart.setstate("CALLPROC");
-		iccstart.setbusinessprocedurenr("2");
-		iccstart.setworkeventnamenr("5");
-		outopenoccasstart(iccstart,"### CALLPROC First generation of occassstart START");
-		occstart = gnes.generateNextSequencedo(iccstart);
-		outopenoccasstart(occstart,"### CALLPROC First generation of occassstart END");
 
-		iccstart = occstart;
-		occstart = null;
-		iccstart.setstate("END");
-		outopenoccasstart(iccstart,"### CALLPROC Second generation of occassstart START");
-		occstart = gnes.generateNextSequencedo(iccstart);
-		outopenoccasstart(occstart,"### CALLPROC Second generation of occassstart END");
-
-		iccstart = occstart;
-		occstart = null;
-		iccstart.setstate("END");
-		outopenoccasstart(iccstart,"### Second generation of occassstart START");
-		occstart = gnes.generateNextSequencedo(iccstart);
-		outopenoccasstart(occstart,"### Second generation of occassstart END");
-
-		iccstart = occstart;
-		occstart = null;
-		iccstart.setstate("END");
-		outopenoccasstart(iccstart,"### Third generation of occassstart START");
-		occstart = gnes.generateNextSequencedo(iccstart);
-		outopenoccasstart(occstart,"### Third generation of occassstart END");
-		
+		int count = 1;
+		do 
+		{
+			outopenoccasstart(iccstart,"##### " + count + " generation of occassstart START");
+			occstart = gnes.generateNextSequencedo(iccstart);
+			outopenoccasstart(occstart,"##### " + count + " generation of occassstart END");
+			iccstart = occstart;
+			occstart = null;		
+			if (count == 2)
+			{
+				iccstart.setstate("CALLPROC");
+				iccstart.setbusinessprocedurenr("4");
+				iccstart.setworkeventnamenr("21");
+				iccstart.setreferencetouse("123456789009");
+			}
+			else
+			{
+				iccstart.setstate("END");
+			}
+			count++;
+	
+		} while (Integer.parseInt(iccstart.getworkeventnamenr()) > 0);
 		
 			
 
