@@ -16,7 +16,7 @@ private String state;
 private String referencetouse;
 private String businessprocedurenr;
 
-public void openoccasstart () 
+public openoccasstart () 
 {
 	setworkeventnr("-1");
 	setworkeventnamenr("-1");
@@ -26,15 +26,14 @@ public void openoccasstart ()
 }
 
 
-public void openoccasstart (String workeventnr, 
-			String technicaloccasionnr,
+public openoccasstart (String workeventnr, 
 			String workeventnamenr, 
 			String state, 
 			String referencetouse, 
 			String businessprocedurenr)
 {
 	setworkeventnr(workeventnr);
-	setworkeventnamenr(technicaloccasionnr);
+	setworkeventnamenr(workeventnamenr);
 	setstate(state);
 	setreferencetouse(referencetouse);
 	setbusinessprocedurenr(businessprocedurenr);

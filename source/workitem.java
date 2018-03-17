@@ -81,6 +81,7 @@ public workitem (String workitemnumber,
 			String completiondate, 
 			String state, 
 			String workitemassignedto,
+			String processtoken,
 			String workeventnamenr, 
 			String businessprocedurenr, 	
 			String occasioninstance,
@@ -99,7 +100,7 @@ public workitem (String workitemnumber,
 	setcompletiondate(completiondate);
 	setstate(state);
 	setworkitemassignedto(workitemassignedto);
-	setprocesstoken(workeventnamenr);
+	setprocesstoken(processtoken);
 	setworkeventnamenr(workeventnamenr);
 	setbusinessprocedurenr(businessprocedurenr);
 	setoccasioninstance(occasioninstance);

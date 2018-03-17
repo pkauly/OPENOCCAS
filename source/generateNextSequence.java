@@ -4,26 +4,31 @@
 public class generateNextSequence
 {
 
-private openoccasion iopocc = null;
-private workitem iwoit = null;
 private workeventname wen = null;
 private workevent twe = null;
 private workevent iwe = null;
 private workevent owe = null;
-workeventname twen = null;
-openoccasstart oopst = null;
+private workeventname twen = null;
+private openoccasstart iopst = null;
+private openoccasstart oopst = null;
+private ruleResult rlrst = null;
+private wopenoccasinterface owopintf = null;
 
 public generateNextSequence()
 {
 }
 
-public openoccasstart generateNextSequencedo(openoccasstart iopst) 
+public wopenoccasinterface generateNextSequencedo(wopenoccasinterface iwopintf) 
 {
 //* service to generate the next process sequence in process chain
 
 	manageWorkevent iwemgr = new manageWorkevent();
 	manageWorkevent owemgr = new manageWorkevent();
-	oopst = new openoccasstart();
+	owopintf = new wopenoccasinterface();
+	owopintf.setworkevent(iwopintf.getworkevent());
+	owopintf.setopenoccasstart(iwopintf.getopenoccasstart());
+	iopst = iwopintf.getopenoccasstart();
+	rlrst = new ruleResult("-1","Error in generateNextSequence");
 
 
 	if (Long.parseLong(iopst.getworkeventnr()) > 0)
@@ -62,6 +67,7 @@ public openoccasstart generateNextSequencedo(openoccasstart iopst)
 			oopst = generatenewopenoccasstart(owemgr.getcurrentWorkevent());
 			oopst.setworkeventnamenr("-1");
 			oopst.setstate("STOP");
+			rlrst = new ruleResult("-1","Invalid Business Procedure Number");
 		}
 	}
 	twe.setworkeventnamenr(wen.getworkeventnamenr());
@@ -71,13 +77,14 @@ public openoccasstart generateNextSequencedo(openoccasstart iopst)
 	if (Long.parseLong(twe.getworkeventnamenr()) < 1) 
 	{
 		iopst.setstate("STOP");
+		rlrst = new ruleResult("-1","Invalid Workevent Name");
 		System.out.println("checkpoint 40");
 	}
 	System.out.print("generatenext workeventnr: " + iopst.getworkeventnr());
 	System.out.print(", workeventnamenr " + iopst.getworkeventnamenr());
 	System.out.print(", state: " + iopst.getstate());
   	System.out.print(", referencetouse: " + iopst.getreferencetouse());
-        System.out.println(", businessprocedurenr: " + iopst.getbusinessprocedurenr());
+       System.out.println(", businessprocedurenr: " + iopst.getbusinessprocedurenr());
 
 	switch (iopst.getstate())
 	{
@@ -119,6 +126,7 @@ public openoccasstart generateNextSequencedo(openoccasstart iopst)
 						oopst = generatenewopenoccasstart(owemgr.getcurrentWorkevent());
 						oopst.setworkeventnamenr("-1");
 						oopst.setstate("STOP");	
+						rlrst = new ruleResult("-1","End of processing");
 						break;					
 					} 
 			}	
@@ -128,23 +136,30 @@ public openoccasstart generateNextSequencedo(openoccasstart iopst)
 				oopst = generatenewopenoccasstart(owemgr.getcurrentWorkevent());
 				oopst.setworkeventnamenr("-1");
 				oopst.setstate("STOP");	
+				rlrst = new ruleResult("-1","Invalid request. Use CALLPROC");
 				break;			
 			}	
 			owemgr = generatenewWorkevent(twe,wen,iopst);
 			oopst = generatenewopenoccasstart(owemgr.getcurrentWorkevent());
 			oopst.setstate("START");
+			rlrst.setResult("1");
+			rlrst.setparkingReason("NONE");
 			break;
 		case "REST": 
 			System.out.println("checkpoint 14");
 			owemgr = generatenewWorkevent(twe,wen,iopst);
 			oopst = generatenewopenoccasstart(owemgr.getcurrentWorkevent());
 			oopst.setstate("START");
+			rlrst.setResult("1");
+			rlrst.setparkingReason("NONE");
 			break;
 		case "START": 
 			System.out.println("checkpoint 15");
 			owemgr = generatenewWorkevent(twe,wen,iopst);
 			oopst = generatenewopenoccasstart(owemgr.getcurrentWorkevent());
 			oopst.setstate("START");
+			rlrst.setResult("1");
+			rlrst.setparkingReason("NONE");
 			break;
 		case "CALLPROC": 
 			System.out.println("checkpoint 16");	
@@ -169,30 +184,38 @@ public openoccasstart generateNextSequencedo(openoccasstart iopst)
 			{
 				System.out.println("checkpoint 16b iopst.getbusinessprocedurenr() " + iopst.getbusinessprocedurenr() + " iwe.getbusinessprocedurenr() " + iwe.getbusinessprocedurenr() );
 				oopst = generatenewopenoccasstart(owemgr.getcurrentWorkevent());
-				oopst.setworkeventnamenr("-1");
+				oopst.setworkeventnamenr("1");
 				oopst.setstate("STOP");
+				rlrst = new ruleResult("-1","Invalid Reques, use END");
 				break;
 			}
 			owemgr = generatenewWorkevent(twe,wen,iopst);
 			oopst = generatenewopenoccasstart(owemgr.getcurrentWorkevent());
 			oopst.setstate("START");
 			oopst.setreferencetouse(iwe.getobjectreference());
+			rlrst.setResult("1");
+			rlrst.setparkingReason("NONE");
 		    	break;
 		case "OUTPUTWAIT": 
 			System.out.println("checkpoint 17");
+			rlrst.setResult("1");
+			rlrst.setparkingReason("NONE");
 		    	break;
 		case "OUTPUTTERM":
 			System.out.println("checkpoint 18");
+			rlrst.setResult("1");
+			rlrst.setparkingReason("NONE");
 		    	break;
 		default: 
 			System.out.println("checkpoint 19");
 			oopst.setworkeventnamenr("-1");
+			rlrst = new ruleResult("-1","Terminate processing");
 	}
-	if (Long.parseLong(oopst.getworkeventnamenr()) > 0)
-	{
-		owe = owemgr.updateWorkeventRouted(owemgr.getcurrentWorkevent().getid());
-	}
-	return oopst;
+
+	owopintf.setworkevent(owemgr.getcurrentWorkevent());
+	owopintf.setopenoccasstart(oopst);
+	owopintf.setruleResult(rlrst);
+	return owopintf;
 }
 	
 private manageWorkevent generatenewWorkevent(workevent iwe, workeventname wen, openoccasstart opstart) {

@@ -8,26 +8,41 @@ public class MaingenerateNextTest
 
 private static openoccasstart occstart = null;
 private static openoccasstart iccstart = null;
+private ruleResult rlrst = null;
+private static wopenoccasinterface wopintf = null;
 
 public static void main(String[] args)
 	{
 		generateNextSequence gnes = new generateNextSequence();
-		
+		checkLoop gclo = new checkLoop();
 		iccstart = new openoccasstart();
 		iccstart.setworkeventnr("-1");
 		iccstart.setworkeventnamenr("1");
 		iccstart.setstate("START");
 		iccstart.setreferencetouse("-1");
 		iccstart.setbusinessprocedurenr("1");
+		wopintf = new wopenoccasinterface();
+		wopintf.setopenoccasstart(iccstart);
 
 		int count = 1;
 		do 
 		{
-			outopenoccasstart(iccstart,"##### " + count + " generation of occassstart START");
-			occstart = gnes.generateNextSequencedo(iccstart);
-			outopenoccasstart(occstart,"##### " + count + " generation of occassstart END");
-			iccstart = occstart;
-			occstart = null;		
+			outopenoccasstart(wopintf.getopenoccasstart(),"##### " + count + " generation of occassstart START");
+			wopintf = gclo.checkLoopdo(wopintf);
+			if (Long.parseLong(wopintf.getruleResult().getResult()) < 0)
+			{
+				System.out.println("##### " + count + " error in checkLoop" + wopintf.getruleResult().getparkingReason());	
+				break;
+			} 
+			wopintf = gnes.generateNextSequencedo(wopintf);
+			if (Long.parseLong(wopintf.getruleResult().getResult()) < 0)
+			{
+				System.out.println("##### " + count + " error in generateNextSequence" + wopintf.getruleResult().getparkingReason());	
+				break;
+			} 	
+			outopenoccasstart(wopintf.getopenoccasstart(),"##### " + count + " generation of occassstart END");
+			iccstart = wopintf.getopenoccasstart();
+
 			if (count == 2)
 			{
 				iccstart.setstate("CALLPROC");
@@ -40,7 +55,7 @@ public static void main(String[] args)
 				iccstart.setstate("END");
 			}
 			count++;
-	
+			wopintf.setopenoccasstart(iccstart);
 		} while (Integer.parseInt(iccstart.getworkeventnamenr()) > 0);
 		
 			

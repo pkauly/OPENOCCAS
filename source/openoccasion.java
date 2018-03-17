@@ -103,7 +103,7 @@ public openoccasion (String businessoccasionnr,
 	setobjectreference(objectreference);
 }
 
-private void setid(String input)
+public void setid(String input)
 {
 	id = input;
 }
