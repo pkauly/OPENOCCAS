@@ -50,17 +50,17 @@ public businessnumber getbusinessNumberByID(String ibusinessnumber)
 public businessnumber createbusinessNumber(String busnrtype)
 {
 
-	busnr = new businessnumber();
-     	String sql;
+	String sql;
 	String id = "0";
      	sql = "insert into occascounter values (NULL);"; 
 	Statement stmt = null;
+	ResultSet rs = null;
 	System.out.println("runsqlquery " + sql);
 	try{
     		conn.setAutoCommit(false);
 		stmt = conn.createStatement();
      		int rtv = stmt.executeUpdate(sql,Statement.RETURN_GENERATED_KEYS);
-      	ResultSet rs = stmt.getGeneratedKeys();
+      	rs = stmt.getGeneratedKeys();
       	if (rs.next()) id=rs.getString(1);
  		conn.commit();
 		conn.setAutoCommit(true);
@@ -87,7 +87,32 @@ public businessnumber createbusinessNumber(String busnrtype)
 	
 	String busnumber = generateBusNumber(id);
 	System.out.println(" Num " + busnumber);
-	sql = "insert into businessnumber (businessnumber,businessnumbertype) values (" + busnumber + "," + busnrtype + ";";	
+	sql = "insert into businessnumber (businessnumber,businessnumbertype) values (" + '"' + busnumber + '"' + "," + '"' + busnrtype + '"' + ");";
+	System.out.println("runsqlquery " + sql);
+	try{
+ 		stmt = conn.createStatement();
+     		int rtv = stmt.executeUpdate(sql);
+     
+         	System.out.println("managebusinessnumber insert ID: " + id);
+ 
+		rs.close();
+      	stmt.close();
+	}
+	catch(SQLException se) {
+      //Handle errors for JDBC
+      		se.printStackTrace();
+   	}	
+	finally{
+      //finally block used to close resources
+      		try{
+         		if(stmt!=null) stmt.close();
+      		}
+		catch(SQLException se2){
+      		}// nothing we can do
+
+  	}//end try	
+	sql = "select * from businessnumber where businessnumber=" +  '"' + busnumber +  '"' + ";"; 
+	businessnumber busnr = runsqlquery(sql);
 	return busnr;
 }
 
@@ -107,15 +132,19 @@ private String generateBusNumber(String id)
 	int b = Integer.parseInt(busnumber.substring(1,2)) * chs2;
 	int c = Integer.parseInt(busnumber.substring(2,3)) * chs3;
 	int d = Integer.parseInt(busnumber.substring(3,4)) * chs4;
-	int e = Integer.parseInt(busnumber.substring(0,1)) * chs5;
-	int f = Integer.parseInt(busnumber.substring(0,1)) * chs6;
-	int g = Integer.parseInt(busnumber.substring(0,1)) * chs7;
-	int h = Integer.parseInt(busnumber.substring(0,1)) * chs8;
-	int i = Integer.parseInt(busnumber.substring(0,1)) * chs9;
-	int j = Integer.parseInt(busnumber.substring(0,1)) * chs10;
-	int k = Integer.parseInt(busnumber.substring(0,1)) * chs11;
+	int e = Integer.parseInt(busnumber.substring(4,5)) * chs5;
+	int f = Integer.parseInt(busnumber.substring(5,6)) * chs6;
+	int g = Integer.parseInt(busnumber.substring(6,7)) * chs7;
+	int h = Integer.parseInt(busnumber.substring(7,8)) * chs8;
+	int i = Integer.parseInt(busnumber.substring(8,9)) * chs9;
+	int j = Integer.parseInt(busnumber.substring(9,10)) * chs10;
+	int k = Integer.parseInt(busnumber.substring(10,11)) * chs11;
 	int l = (a + b + c + d + e + f + g + h + i + j + k) % 11;
 	if (l > 9) l = 0;	 
+	int su = (a + b + c + d + e + f + g + h + i + j + k);
+	int rem = su % 11;
+	System.out.println("Summe " + su + " rem " + rem);
+
 	System.out.println("a " + a + " b " + b + " c " + c + " d " + d + " e " + e + " f " + f + " g " + g + 
 				" h " + h + " i " + i + " j " + j + " k " + k + " l " + l);
 

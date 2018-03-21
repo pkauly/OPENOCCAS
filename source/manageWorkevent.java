@@ -7,7 +7,7 @@ public class manageWorkevent
 {
 
 private workevent we;
-public Connection conn = null;
+public static Connection conn = null;
 
 public manageWorkevent() 
 {

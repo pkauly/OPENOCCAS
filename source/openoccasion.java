@@ -26,7 +26,7 @@ public class openoccasion
 private String id = "-1";
 private String businessoccasionnr;
 private String technicaloccasionnr;
-private String businesstatus;
+private String businessstate;
 private String displayattribut1;
 private String displayattribut2;
 private String displayattribut3;
@@ -41,13 +41,14 @@ private String temporarycompetencelevel;
 private String referencetemporarycompetencelevel;
 private String lastprocessingdate;
 private String objectreference;
+private String datecreated;
 
 public openoccasion () 
 {
 	setid("-1");
 	setbusinessoccasionnr("-1");
 	settechnicaloccasionnr("-1");
-	setbusinesstatus("-1");
+	setbusinessstate("-1");
 	setdisplayattribut1("-1");
 	setdisplayattribut2("-1");
 	setdisplayattribut3("-1");
@@ -67,7 +68,7 @@ public openoccasion ()
 
 public openoccasion (String businessoccasionnr, 
 			String technicaloccasionnr,
-			String businesstatus, 
+			String businessstate, 
 			String displayattribut1, 
 			String displayattribut2, 
 			String displayattribut3, 
@@ -86,7 +87,7 @@ public openoccasion (String businessoccasionnr,
 	setid("1");	
 	setbusinessoccasionnr(businessoccasionnr);
 	settechnicaloccasionnr(technicaloccasionnr);
-	setbusinesstatus(businesstatus);
+	setbusinessstate(businessstate);
 	setdisplayattribut1(displayattribut1);
 	setdisplayattribut2(displayattribut2);
 	setdisplayattribut3(displayattribut3);
@@ -127,13 +128,13 @@ public String gettechnicaloccasionnr()
 {
 	return technicaloccasionnr;
 }
-public void setbusinesstatus(String input)
+public void setbusinessstate(String input)
 {
-	businesstatus = input;
+	businessstate = input;
 }
-public String getbusinesstatus()
+public String getbusinessstate()
 {
-	return businesstatus;
+	return businessstate;
 }
 public void setdisplayattribut1(String input)
 {
@@ -247,5 +248,14 @@ public String getobjectreference()
 {
 	return objectreference;					
 }
+public void setdatecreated(String input)
+{
+	datecreated = input;
+}
+public String getdatecreated()
+{
+	return datecreated;					
+}
+
 
 }
