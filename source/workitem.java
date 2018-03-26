@@ -111,6 +111,10 @@ public String getid()
 {
 	return id;
 }
+public void setid(String input)
+{
+	id = input;
+}
 public void setworkitemnumber(String input)
 {
 	workitemnumber = input;
