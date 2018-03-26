@@ -10,7 +10,7 @@
 // 	<document>”businessnumber”</document>
 // 	<worktocomplete>“string“</worktocomplete>
 // 	<worktocompletedate>date</worktocompletedate>
-// 	<reminderdate>date</reminderdate>
+// 	<remainderdate>date</remainderdate>
 // 	<completionreason>“string“</completionreason>
 // 	<completiondate>date</completiondate>
 // 	<state>“string“</state>
@@ -25,7 +25,7 @@
 public class workitem
 {
 
-private static String id = "-1";
+private String id = "-1";
 private String workitemnumber;
 private String occasionnr;
 private String description;
@@ -34,7 +34,7 @@ private String businessobjectname;
 private String document;
 private String worktocomplete; 
 private String worktocompletedate;
-private String reminderdate;
+private String remainderdate;
 private String completionreason;
 private String completiondate;
 private String state;
@@ -44,6 +44,7 @@ private String workeventnamenr;
 private String businessprocedurenr;
 private String occasioninstance;
 private String workitemprocessingtime;
+private String datecreated;
 
 public workitem () 
 {
@@ -55,7 +56,7 @@ public workitem ()
 	setdocument("-1");
 	setworktocomplete("-1"); 
 	setworktocompletedate("-1");
-	setreminderdate("-1");
+	setremainderdate("-1");
 	setcompletionreason("-1");
 	setcompletiondate("-1");
 	setstate("-1");
@@ -76,7 +77,7 @@ public workitem (String workitemnumber,
 			String document, 
 			String worktocomplete, 
 			String worktocompletedate, 
-			String reminderdate, 
+			String remainderdate, 
 			String completionreason, 
 			String completiondate, 
 			String state, 
@@ -95,7 +96,7 @@ public workitem (String workitemnumber,
 	setdocument(document);
 	setworktocomplete(worktocomplete); 
 	setworktocompletedate(worktocompletedate);
-	setreminderdate(reminderdate);
+	setremainderdate(remainderdate);
 	setcompletionreason(completionreason);
 	setcompletiondate(completiondate);
 	setstate(state);
@@ -179,13 +180,13 @@ public String getworktocompletedate()
 {
 	return worktocompletedate;
 }	
-public void setreminderdate(String input)
+public void setremainderdate(String input)
 {
-	reminderdate = input;
+	remainderdate = input;
 }
-public String getreminderdate()
+public String getremainderdate()
 {
-	return reminderdate;
+	return remainderdate;
 }
 public void setcompletionreason(String input)
 {
@@ -258,6 +259,15 @@ public void setworkitemprocessingtime(String input)
 public String getworkitemprocessingtime()
 {
 	return workitemprocessingtime;					
+
+}
+public void setdatecreated(String input)
+{
+	datecreated = input;
+}
+public String getdatecreated()
+{
+	return datecreated;					
 
 }
 }
