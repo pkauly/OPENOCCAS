@@ -27,6 +27,7 @@ public wopenoccasinterface loadOpenOccasWorkeventdo(wopenoccasinterface iwopintf
 {
 //* service to load and verify workevent 
 	wemgr = new manageWorkevent();
+	owopintf = iwopintf;
 	if (iwopintf == null) return null;
 	manageWorkevent wemgr = new manageWorkevent();
 
@@ -67,6 +68,8 @@ public wopenoccasinterface loadOpenOccasWorkeventdo(wopenoccasinterface iwopintf
 		bus3 = mgbus.getbusinessNumberByID(objnr);
 		rulcount = rulcount + 2;
 	}
+	
+	System.out.println("LoadOpenOccasElements rulcount " + rulcount);
 	switch (rulcount)
 	{
 		case 14: 
@@ -102,6 +105,7 @@ public wopenoccasinterface loadOpenOccasWorkeventdo(wopenoccasinterface iwopintf
 			rlrst.setparkingReason("loadOpenOccasWorkevent Invalid workevent");
 	}
 
+	System.out.println("LoadOpenOccasElements ruleReuslt " + rlrst.getResult());
 	owopintf.setruleResult(rlrst);
 	return owopintf;	
 }

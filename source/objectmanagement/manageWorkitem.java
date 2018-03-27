@@ -12,7 +12,6 @@ public static Connection conn = null;
 private workitem woitm = null;
 final String NEW_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
-
 public manageWorkitem () 
 {
 	conn = dbConnection.getInstance().getConnection();
@@ -28,6 +27,16 @@ public workitem getWorkitemByNR(String witnr)
  	woitm = runsqlquery(sql);
 
 	return woitm;
+}
+
+public ArrayList<workitem> getWorkitemListByTNR(String wittnr)
+{
+   	String sql;
+     	sql = "SELECT * from workitem where occasionnr = " + wittnr + ";";
+	System.out.println("workitem " + sql);
+ 	ArrayList<workitem> workitemlist = runsqlqueryL(sql);
+
+	return workitemlist;
 }
 
 public workitem getcurrentworkitem()
@@ -201,7 +210,7 @@ private workitem runsqlquery(String sql)
       	ResultSet rs = stmt.executeQuery(sql);
 
       //STEP 5: Extract data from result set
-      		while(rs.next()){
+      	while(rs.next()){
          //Retrieve by column name
          		woitm.setworkitemnumber(rs.getString("workitemnumber"));
 			woitm.setoccasionnr(rs.getString("occasionnr"));
@@ -269,6 +278,88 @@ private workitem runsqlquery(String sql)
   	}//end try
 
 	return woitm;
+}
+
+private ArrayList<workitem> runsqlqueryL(String sql)
+{
+	Statement stmt = null;
+	System.out.println("runsqlquery " + sql);
+	woitm = new workitem();
+	ArrayList<workitem> workitemlist = new ArrayList<>();
+	try{
+		stmt = conn.createStatement();
+      	ResultSet rs = stmt.executeQuery(sql);
+
+      //STEP 5: Extract data from result set
+      	while(rs.next()){
+         //Retrieve by column name
+         		woitm.setworkitemnumber(rs.getString("workitemnumber"));
+			woitm.setoccasionnr(rs.getString("occasionnr"));
+			woitm.setdescription(rs.getString("description"));
+			woitm.setbusinessobject(rs.getString("businessobject"));
+			woitm.setbusinessobjectname(rs.getString("businessobjectname"));
+			woitm.setdocument(rs.getString("document"));
+			woitm.setworktocomplete(rs.getString("worktocomplete")); 
+			woitm.setworktocompletedate(rs.getString("worktocompletedate"));
+			woitm.setremainderdate(rs.getString("remainderdate"));
+			woitm.setcompletionreason(rs.getString("completionreason"));
+			woitm.setcompletiondate(rs.getString("completiondate"));
+			woitm.setstate(rs.getString("state"));
+			woitm.setworkitemassignedto(rs.getString("workitemassignedto"));
+			woitm.setprocesstoken(rs.getString("processtoken"));
+			woitm.setworkeventnamenr(rs.getString("workeventnamenr"));
+			woitm.setbusinessprocedurenr(rs.getString("businessprocedurenr"));
+			woitm.setoccasioninstance(rs.getString("occasioninstance"));
+			woitm.setworkitemprocessingtime(rs.getString("workitemprocessingtime"));
+			woitm.setdatecreated(rs.getString("datecreated"));
+ 
+         //Display values
+         		System.out.print("runsqlquery workitemnumber: " + woitm.getworkitemnumber());
+         		System.out.print(", occasionnr " + woitm.getoccasionnr());
+          		System.out.print(", description: " + woitm.getdescription());
+         		System.out.print(", businessobject: " + woitm.getbusinessobject());
+         		System.out.print(", businessobjectname: " + woitm.getbusinessobjectname());
+         		System.out.print(", document: " + woitm.getdocument());
+         		System.out.print(", worktocomplete: " + woitm.getworktocomplete());
+         		System.out.print(", worktocompletedate: " + woitm.getworktocompletedate());
+         		System.out.print(", remainderdate: " + woitm.getremainderdate());
+         		System.out.print(", completionreason: " + woitm.getcompletionreason());
+         		System.out.println(", completiondate: " + woitm.getcompletiondate());
+       		System.out.println(", state: " + woitm.getstate());
+         		System.out.println(", workitemassignedto: " + woitm.getworkitemassignedto());
+         		System.out.println(", processtoken: " + woitm.getprocesstoken());
+         		System.out.println(", workeventnamenr: " + woitm.getworkeventnamenr());
+         		System.out.println(", businessprocedurenr: " + woitm.getbusinessprocedurenr());
+         		System.out.println(", occasioninstance: " + woitm.getoccasioninstance());
+         		System.out.println(", workitemprocessingtime: " + woitm.getworkitemprocessingtime());
+         		System.out.println(", datecreated: " + woitm.getdatecreated());
+  
+			workitemlist.add(woitm);
+			
+      		}
+      //STEP 6: Clean-up environment
+      	rs.close();
+      	stmt.close();
+   	}	
+	catch(SQLException se) {
+      //Handle errors for JDBC
+      		se.printStackTrace();
+   	}	
+	catch(Exception e) {
+      //Handle errors for Class.forName
+      		e.printStackTrace();
+   	}	
+	finally{
+      //finally block used to close resources
+      		try{
+         		if(stmt!=null) stmt.close();
+      		}
+		catch(SQLException se2){
+      		}// nothing we can do
+
+  	}//end try
+
+	return workitemlist;
 }
 
 private workitem runsqlinsert(String workitemnumber,String sql)
