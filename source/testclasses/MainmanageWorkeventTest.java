@@ -1,5 +1,6 @@
 //MainmanageWorkeventTest
-
+import service.*;
+import objectmanagement.*;
 
 public class MainmanageWorkeventTest
 {
@@ -7,7 +8,7 @@ public static void main(String[] args)
 	{
 
 	manageWorkevent mwe = new manageWorkevent();
-	workevent we = mwe.getWorkeventByID("2");
+	workevent we = mwe.getWorkeventByID("1");
 	outworkevent(we,"getWorkeventByID");
 	
 	mwe = new manageWorkevent();
@@ -43,7 +44,7 @@ public static void main(String[] args)
 				null,
 				null,
 				null,
-				"123456800116",
+				"180860000185",
 				null,
 				null,
 				null,

@@ -14,6 +14,8 @@
 // 	<corelworkevent>”businessnumber”</corellid>
 // 	<occasioninstance>”processinstancenumber”</occasioninstance>
 // </workevent>
+package objectmanagement;
+
 public class workevent
 {
 

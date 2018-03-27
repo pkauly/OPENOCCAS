@@ -10,6 +10,7 @@
 //     	<nextworkeventmamenr>“number“</nextworkeventnamenr>
 //     	<occasionnr>”occasiontype”</occasiontype>
 // </workeventname>
+package objectmanagement;
 
 public class workeventname
 {

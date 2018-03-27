@@ -1,5 +1,8 @@
 //ruleResult
 // 
+package service;
+
+import objectmanagement.*;
 
 public class ruleResult
 {

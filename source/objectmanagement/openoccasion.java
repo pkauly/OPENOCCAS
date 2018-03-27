@@ -20,6 +20,8 @@
 // 	<lastprocessingdate>“date“</lastprocessingdate>
 // 	<objectreference>”businessnumber”</objectreference>
 // </openoccasion> 
+package objectmanagement;
+
 public class openoccasion
 {
 

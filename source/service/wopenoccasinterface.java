@@ -1,6 +1,9 @@
 //wopenoccasinterface
 // 
 //
+package service;
+
+import objectmanagement.*;
 
 public class wopenoccasinterface
 {
@@ -47,7 +50,7 @@ public openoccasion setopenoccasion(openoccasion iopocc)
 {
 	opocc = new openoccasion(iopocc.getbusinessoccasionnr(),
 		iopocc.gettechnicaloccasionnr(),
-		iopocc.getbusinesstatus(),
+		iopocc.getbusinessstate(),
 		iopocc.getdisplayattribut1(),
 		iopocc.getdisplayattribut2(),
 		iopocc.getdisplayattribut3(),
@@ -81,7 +84,7 @@ public workitem setworkitem(workitem iwoitm)
 		iwoitm.getdocument(),
 		iwoitm.getworktocomplete(),
 		iwoitm.getworktocompletedate(),
-		iwoitm.getreminderdate(),
+		iwoitm.getremainderdate(),
 		iwoitm.getcompletionreason(),
 		iwoitm.getcompletiondate(),
 		iwoitm.getstate(),

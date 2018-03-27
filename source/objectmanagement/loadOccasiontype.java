@@ -1,5 +1,8 @@
 //loadOccasiontype
 // 
+
+package objectmanagement;
+
 import java.util.*;
 import java.sql.*;
 

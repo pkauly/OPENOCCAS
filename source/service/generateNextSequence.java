@@ -1,5 +1,7 @@
 //generateNextSequence
+package service;
 
+import objectmanagement.*;
 
 public class generateNextSequence
 {

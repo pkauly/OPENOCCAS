@@ -21,6 +21,7 @@
 // 	<occasioninstance>“string“</occasioninstance>
 // 	<workitemprocessingtime>timestamp</workitemprocessingtime>
 // </workitem>
+package objectmanagement;
 
 public class workitem
 {

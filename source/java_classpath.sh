@@ -1,2 +1,2 @@
-cd /opt/share/openoccas/source
-java -cp .:/opt/share/openoccas/source/*:/opt/share/classpath/* $1 $2 $3 $4
+cd /opt/share/openoccas/source/testclasses
+java -cp .:/opt/share/classpath/* $1 $2 $3 $4

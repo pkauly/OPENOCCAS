@@ -6,6 +6,8 @@
 // 	<occasiondescription>“string“</occasiondescription>
 //    	<occastiontype>“number“</occastiontype>
 // </occasiontype> 
+package objectmanagement;
+
 public class occasiontype
 {
 

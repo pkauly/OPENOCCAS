@@ -7,6 +7,8 @@
 // 	<referencetouse>”businessnumber”</corellid>
 // 	<businessprocedurenr>”businesprocedurenumber”</businessprocedurenr>
 // </openoccasstart>
+package objectmanagement;
+
 public class openoccasstart
 {
 

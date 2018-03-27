@@ -1,5 +1,7 @@
 //loadOpenOccasElements
+package service;
 
+import objectmanagement.*;
 
 public class loadOpenOccasElements
 {
@@ -18,16 +20,16 @@ private openoccasstart opoccsta = null;
 
 public loadOpenOccasElements()
 {
+	owopintf = new wopenoccasinterface();
 }
 
-public wopenoccasinterface loadOpenOccasElementsdo(wopenoccasinterface iwopintf) 
+public wopenoccasinterface loadOpenOccasWorkeventdo(wopenoccasinterface iwopintf) 
 {
 //* service to load and verify workevent 
 	wemgr = new manageWorkevent();
-	owopintf = new wopenoccasinterface();
 	if (iwopintf == null) return null;
 	manageWorkevent wemgr = new manageWorkevent();
-	owopintf = new wopenoccasinterface();
+
 	owopintf.setworkevent(iwopintf.getworkevent());
 	owopintf.setopenoccasstart(iwopintf.getopenoccasstart());
 	opoccsta = iwopintf.getopenoccasstart();
@@ -97,10 +99,69 @@ public wopenoccasinterface loadOpenOccasElementsdo(wopenoccasinterface iwopintf)
 			break;
 		default:
 			rlrst.setResult("-1");
-			rlrst.setparkingReason("loadOpenOccasElements Invalid workevent");
+			rlrst.setparkingReason("loadOpenOccasWorkevent Invalid workevent");
 	}
 
 	owopintf.setruleResult(rlrst);
+	return owopintf;	
+}
+
+public wopenoccasinterface loadOpenOccasOpenoccasiondo(wopenoccasinterface iwopintf) 
+{
+//* service to load openoccasion 
+	opocc = new manageOpenoccasion();
+
+	if (iwopintf == null) return null;
+
+	owopintf.setopenoccasion(iwopintf.getopenoccasion());
+	rlrst = new ruleResult("-1","Error in loadOpenOccasOpenoccasion");
+
+	if (Long.parseLong(owopintf.getworkevent().gettechnicaloccasionnr()) > 0)
+	{
+		System.out.println("checkpoint 20");
+		owopintf.setopenoccasion(opocc.getOpenoccasionByTNR(owopintf.getworkevent().gettechnicaloccasionnr()));
+		rlrst.setResult("1");
+		rlrst.setparkingReason("NONE");
+	}
+	else
+	{
+		System.out.println("checkpoint 21");
+		return null;
+	}
+
+	owopintf.setruleResult(rlrst);
+	return owopintf;	
+}
+
+public wopenoccasinterface loadOpenOccasWorkitemdo(wopenoccasinterface iwopintf) 
+{
+//* service to load openoccasion 
+	woitm = new manageWorkitem();
+
+	if (iwopintf == null) return null;
+
+	owopintf.setworkitem(iwopintf.getworkitem());
+	rlrst = new ruleResult("-1","Error in loadOpenOccasWorkitem");
+
+	if (Long.parseLong(owopintf.getworkevent().getworkitemnumber()) > 0)
+	{
+		System.out.println("checkpoint 30");
+		owopintf.setworkitem(woitm.getWorkitemByNR(owopintf.getworkevent().getworkitemnumber()));
+		rlrst.setResult("1");
+		rlrst.setparkingReason("NONE");
+	}
+	else
+	{
+		System.out.println("checkpoint 31");
+		return null;
+	}
+
+	owopintf.setruleResult(rlrst);
+	return owopintf;	
+}
+
+public wopenoccasinterface getcurrentOpenOccasElements() 
+{
 	return owopintf;	
 }
 
