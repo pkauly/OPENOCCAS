@@ -130,18 +130,21 @@ private String generateBusNumber(String id)
 	String dd = "00" + dayofYear;
 	int cj = dd.length();
 	
-	String busnumber = year + dd.substring(cj-3) + counter.substring(ci-6);
+	String busnumber = year + dd.substring(cj-3);
+	counter = counter.substring(ci-6);
+/* extract date part */
 	int a = Integer.parseInt(busnumber.substring(0,1)) * chs1;
 	int b = Integer.parseInt(busnumber.substring(1,2)) * chs2;
 	int c = Integer.parseInt(busnumber.substring(2,3)) * chs3;
 	int d = Integer.parseInt(busnumber.substring(3,4)) * chs4;
 	int e = Integer.parseInt(busnumber.substring(4,5)) * chs5;
-	int f = Integer.parseInt(busnumber.substring(5,6)) * chs6;
-	int g = Integer.parseInt(busnumber.substring(6,7)) * chs7;
-	int h = Integer.parseInt(busnumber.substring(7,8)) * chs8;
-	int i = Integer.parseInt(busnumber.substring(8,9)) * chs9;
-	int j = Integer.parseInt(busnumber.substring(9,10)) * chs10;
-	int k = Integer.parseInt(busnumber.substring(10,11)) * chs11;
+/* extract counter part */
+	int f = Integer.parseInt(counter.substring(0,1)) * chs6;
+	int g = Integer.parseInt(counter.substring(1,2)) * chs7;
+	int h = Integer.parseInt(counter.substring(2,3)) * chs8;
+	int i = Integer.parseInt(counter.substring(3,4)) * chs9;
+	int j = Integer.parseInt(counter.substring(4,5)) * chs10;
+	int k = Integer.parseInt(counter.substring(5,6)) * chs11;
 	int l = (a + b + c + d + e + f + g + h + i + j + k) % 11;
 	if (l > 9) l = 0;	 
 	int su = (a + b + c + d + e + f + g + h + i + j + k);
@@ -151,8 +154,8 @@ private String generateBusNumber(String id)
 	System.out.println("a " + a + " b " + b + " c " + c + " d " + d + " e " + e + " f " + f + " g " + g + 
 				" h " + h + " i " + i + " j " + j + " k " + k + " l " + l);
 
-	busnumber = busnumber + Integer.toString(l);
-
+	busnumber = busnumber + Integer.toString(l) + counter;
+	System.out.println("Business Number " + busnumber);
   return busnumber;  
 }
 

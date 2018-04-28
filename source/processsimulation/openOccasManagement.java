@@ -31,7 +31,7 @@ public wopenoccasinterface openOccasManagementProcess(wopenoccasinterface iopint
 
 // Activity 1
 	oopintf = openOccasManagementact1(oopintf);
-outworkitem(oopintf.getworkitem());
+	outworkitem(oopintf.getworkitem());
 	ruleResult rlrst = oopintf.getruleResult();
 	ooccstart = iopintf.getopenoccasstart();
 //	occstart.setworkeventnr("7");
